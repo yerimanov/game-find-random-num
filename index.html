@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Угадай число</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<main>
+		<div class="main-container">
+			<div class="form">
+				<h1>Игра</h1>
+				<p>Сгенерировано число от 0 до 100 
+					<br> угадаешь за 10 попыток?</p>
+			</div>
+
+			<form class="form" id="form-id-1">
+				<input 
+				required
+				type="number" 
+				id="input-1" 
+				placeholder="Введите число"
+				min="0"
+				max="100"
+				>
+
+				<button type="submit" class="btn" id="submit-btn">Угадать</button>
+			</form>
+			<button class="btn" id="reset-btn" >Новая игра</button>
+
+			<div class="form" id="btnDiv">
+				<p class="result-text" id="low-high">Подсказки: 
+					<span style="color: aqua;">Мало</span> & 
+					<span style="color: red;">Много</span>
+				</p>
+
+				<p class="result-text" id="last-num-text">Ваши прошлые попытки</p>
+				<p class="result-text" id="last-num" style="display: none;"></p>
+				<p class="result-text" id="try-amount">Количество попыток</p>
+				<p class="result-text" id="congrat">Поздравление если вы угадаете</p>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(35, 36, 42);
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: auto;
+    height: auto;
+    border-radius: 1em;
+    border: 0.2em solid black;
+    display: flex;
+    flex-flow: column nowrap;
+    color: wheat;
+    padding: 0.5em;
+}
+
+.form {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#input-1 {
+    width: 9.17em;
+    height: 2.2em;
+    margin: 0.2em;
+    text-align: center;
+    background-color: rgb(35, 36, 42);
+    border: solid rgb(123, 196, 212);
+    border-radius: 0.3em;
+    border-width: 0.1em;
+    color: white;
+}
+
+.btn {
+    width: 8em;
+    height: 2em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    background-color: rgb(35, 36, 42);
+    border: 1px solid;
+    margin: 0.2em;
+    font-weight: 500;
+    font-size: 1em;
+    color: rgb(123, 196, 212);
+    align-self: center;
+}
+
+#submit-btn {
+    display: unset;
+}
+
+#reset-btn {
+    display: none;
+    border-color: greenyellow;
+    color: greenyellow
+}
+
+button:active {
+    transform: translateY(0.15em);
+}
+
+h1 {
+    margin: auto;
+}
+
+p {
+    margin: 0.4em;
+}
+
