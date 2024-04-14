@@ -17,7 +17,7 @@ formID1.addEventListener('submit', showNewResult)
 resetBtn.addEventListener('click', resetGame)
 
 // генерация рандомного числа
-function getRandomNum(min, max) { 
+function getRandomNum(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
 
