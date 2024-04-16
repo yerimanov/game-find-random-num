@@ -18,10 +18,10 @@ resetBtn.addEventListener('click', resetGame)
 
 // генерация рандомного числа
 function getRandomNum(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
+    min = Math.ceil(min)
+    max = Math.floor(max)
 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min)
 } 
 
 // условия взаимодействия пользователя с инпутом
@@ -81,7 +81,7 @@ function showNewResult (event) {
     tryCount++ // увеличение кол-ва попыток
     inputNum.value = '' 
     inputNum.focus()
-    console.log(inputArray);
+    console.log(inputArray)
 } 
 
 // проверка результата победы или пройгрыша
@@ -91,7 +91,7 @@ function checkTry() {
     if (userValue === randomNum) {
         congrats.textContent = 
         `Поздравляем! Вы угадали число "${randomNum}" 
-        c ${tryCount} попытки!`;
+        c ${tryCount} попытки!`
         congrats.style.color = 'greenyellow'
         showResetBtn() // замена кнопки с сабмита на ресет
 
@@ -126,17 +126,17 @@ function resetGame() {
     
     inputNum.focus()
     console.clear()
-    console.log('Random number:', randomNum);
+    console.log('Random number:', randomNum)
 } 
 
 function showResetBtn() {
     submitBtn.style.display = 'none'
     resetBtn.style.display = 'unset'
-    lowHigh.textContent = '';
-    lastNum.textContent = '';
-    tryAmount.textContent = '';
-    lastNumText.textContent = '';
+    lowHigh.textContent = ''
+    lastNum.textContent = ''
+    tryAmount.textContent = ''
+    lastNumText.textContent = ''
     inputNum.disabled = true
 }
 
-console.log('Random number:', randomNum);
+console.log('Random number:', randomNum)
