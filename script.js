@@ -1,4 +1,4 @@
-// создаем переменные
+// глобальные переменные
 let tryCount = 1
 let inputArray = []
 let randomNum = getRandomNum(0, 100)
@@ -54,6 +54,46 @@ submitBtn.onclick = function() {
     } 
 } 
 
+// замена кнопки с сабмита на ресет
+function showResetBtn() {
+    submitBtn.style.display = 'none'
+    resetBtn.style.display = 'unset'
+    lowHigh.textContent = ''
+    lastNum.textContent = ''
+    tryAmount.textContent = ''
+    lastNumText.textContent = ''
+    inputNum.disabled = true
+}
+
+// проверка результата победы или пройгрыша
+function checkTry() {
+    let userValue = Number(inputNum.value)
+
+    if (userValue === randomNum) {
+        congrats.textContent = 
+        `Поздравляем! Вы угадали число "${randomNum}" 
+        c ${tryCount} попытки!`
+        congrats.style.color = 'greenyellow'
+        showResetBtn()
+
+    } else if (tryCount === 10 ) {
+        congrats.textContent = 'K сожалению вы не угадали число'
+        congrats.style.color = 'red'
+        showResetBtn()
+
+    } else {
+        if (userValue < randomNum) {
+            lowHigh.textContent = 'Мало'
+            lowHigh.style.color = 'aqua'
+            
+        } else if (userValue > randomNum) {
+            lowHigh.textContent = 'Много'
+            lowHigh.style.color = 'red'
+        }
+    }
+} 
+
+// реакция на ввод нового числа
 function showNewResult (event) {
     event.preventDefault()
 
@@ -64,7 +104,7 @@ function showNewResult (event) {
 
     const showArray = inputArray.join(' ')
     lastNum.textContent = showArray 
-    // отображение всего массива
+    // отображение всего массива аля прошлые попытки
 
     lastNumText.textContent = 'Предудыщие попытки: '
     tryAmount.textContent = 'Осталось попыток: ' + (10 - tryCount)
@@ -84,34 +124,6 @@ function showNewResult (event) {
     console.log(inputArray)
 } 
 
-// проверка результата победы или пройгрыша
-function checkTry() {
-    let userValue = Number(inputNum.value)
-
-    if (userValue === randomNum) {
-        congrats.textContent = 
-        `Поздравляем! Вы угадали число "${randomNum}" 
-        c ${tryCount} попытки!`
-        congrats.style.color = 'greenyellow'
-        showResetBtn() // замена кнопки с сабмита на ресет
-
-    } else if (tryCount === 10 ) {
-        congrats.textContent = 'K сожалению вы не угадали число'
-        congrats.style.color = 'red'
-        showResetBtn()
-
-    } else {
-        if (userValue < randomNum) {
-            lowHigh.textContent = 'Мало'
-            lowHigh.style.color = 'aqua'
-            
-        } else if (userValue > randomNum) {
-            lowHigh.textContent = 'Много'
-            lowHigh.style.color = 'red'
-        }
-    }
-} 
-
 // новая игра
 function resetGame() { 
     tryCount = 1
@@ -128,15 +140,5 @@ function resetGame() {
     console.clear()
     console.log('Random number:', randomNum)
 } 
-
-function showResetBtn() {
-    submitBtn.style.display = 'none'
-    resetBtn.style.display = 'unset'
-    lowHigh.textContent = ''
-    lastNum.textContent = ''
-    tryAmount.textContent = ''
-    lastNumText.textContent = ''
-    inputNum.disabled = true
-}
 
 console.log('Random number:', randomNum)
