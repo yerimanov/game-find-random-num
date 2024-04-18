@@ -1,4 +1,3 @@
-// глобальные переменные
 let tryCount = 1
 let inputArray = []
 let randomNum = getRandomNum(0, 100)
@@ -22,10 +21,10 @@ function getRandomNum(min, max) {
     max = Math.floor(max)
 
     return Math.floor(Math.random() * (max - min + 1) + min)
-} 
+}
 
 
-inputNum.oninput = function() { 
+inputNum.oninput = function() {
     let userValue = Number(inputNum.value)
     let checkArray = inputArray.includes(userValue)
 
@@ -39,8 +38,8 @@ inputNum.oninput = function() {
         submitBtn.textContent = 'Угадать'
         submitBtn.disabled = false
         submitBtn.style.color = 'rgb(123, 196, 212)'
-    } 
-} 
+    }
+}
 
 
 submitBtn.onclick = function() {
@@ -51,18 +50,7 @@ submitBtn.onclick = function() {
         submitBtn.disabled = true
         submitBtn.textContent = 'Уже было!'
         submitBtn.style.color = 'red'
-    } 
-} 
-
-
-function showResetBtn() {
-    submitBtn.style.display = 'none'
-    resetBtn.style.display = 'unset'
-    lowHigh.textContent = ''
-    lastNum.textContent = ''
-    tryAmount.textContent = ''
-    lastNumText.textContent = ''
-    inputNum.disabled = true
+    }
 }
 
 
@@ -91,7 +79,18 @@ function checkTry() {
             lowHigh.style.color = 'red'
         }
     }
-} 
+}
+
+
+function showResetBtn() {
+    submitBtn.style.display = 'none'
+    resetBtn.style.display = 'unset'
+    lowHigh.textContent = ''
+    lastNum.textContent = ''
+    tryAmount.textContent = ''
+    lastNumText.textContent = ''
+    inputNum.disabled = true
+}
 
 
 function showNewResult (event) {
@@ -120,10 +119,10 @@ function showNewResult (event) {
     inputNum.value = '' 
     inputNum.focus()
     console.log(inputArray)
-} 
+}
 
 
-function resetGame() { 
+function resetGame() {
     tryCount = 1
     randomNum = getRandomNum(0, 100)
     inputArray = []
@@ -137,6 +136,6 @@ function resetGame() {
     inputNum.focus()
     console.clear()
     console.log('Random number:', randomNum)
-} 
+}
 
 console.log('Random number:', randomNum)
