@@ -11,12 +11,12 @@ const tryAmount = document.getElementById('try-amount')
 const lastNumText = document.getElementById('last-num-text')
 const submitBtn = document.getElementById('submit-btn')
 const resetBtn = document.getElementById('reset-btn')
-const formID1 = document.getElementById('form-id-1')
+const formInput = document.getElementById('form-input')
 
-formID1.addEventListener('submit', showNewResult)
+formInput.addEventListener('submit', showNewResult)
 resetBtn.addEventListener('click', resetGame)
 
-// генерация рандомного числа
+
 function getRandomNum(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
@@ -24,7 +24,7 @@ function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 } 
 
-// условия взаимодействия пользователя с инпутом
+
 inputNum.oninput = function() { 
     let userValue = Number(inputNum.value)
     let checkArray = inputArray.includes(userValue)
@@ -42,7 +42,7 @@ inputNum.oninput = function() {
     } 
 } 
 
-// проверка прошлых попыток
+
 submitBtn.onclick = function() {
     let userValue = Number(inputNum.value)
     let checkArray = inputArray.includes(userValue)
@@ -54,7 +54,7 @@ submitBtn.onclick = function() {
     } 
 } 
 
-// замена кнопки с сабмита на ресет
+
 function showResetBtn() {
     submitBtn.style.display = 'none'
     resetBtn.style.display = 'unset'
@@ -65,7 +65,7 @@ function showResetBtn() {
     inputNum.disabled = true
 }
 
-// проверка результата победы или пройгрыша
+
 function checkTry() {
     let userValue = Number(inputNum.value)
 
@@ -93,18 +93,16 @@ function checkTry() {
     }
 } 
 
-// реакция на ввод нового числа
+
 function showNewResult (event) {
     event.preventDefault()
-
-    let userValue = Number(inputNum.value)
-    inputArray.push(userValue) // добавление значения в массив
-
     lastNum.style.display = 'unset'
 
+    let userValue = Number(inputNum.value)
+
+    inputArray.push(userValue)
     const showArray = inputArray.join(' ')
     lastNum.textContent = showArray 
-    // отображение всего массива аля прошлые попытки
 
     lastNumText.textContent = 'Предудыщие попытки: '
     tryAmount.textContent = 'Осталось попыток: ' + (10 - tryCount)
@@ -114,17 +112,17 @@ function showNewResult (event) {
     const greenColor = 255 - tryCount * 25.5
 
     tryAmount.style.color = `rgb(${redColor}, ${greenColor}, 50)`
-    // смена цвета попыток от зеленого к красному
 
-    checkTry() // проверка результата победы или пройгрыша
 
-    tryCount++ // увеличение кол-ва попыток
+    checkTry()
+
+    tryCount++
     inputNum.value = '' 
     inputNum.focus()
     console.log(inputArray)
 } 
 
-// новая игра
+
 function resetGame() { 
     tryCount = 1
     randomNum = getRandomNum(0, 100)
